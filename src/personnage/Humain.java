@@ -23,7 +23,7 @@ public class Humain {
     }
 
     // Méthode pour faire parler les humains
-    private void parler(String texte) {
+    public void parler(String texte) {
         System.out.println(texte);
     }
 
@@ -39,23 +39,23 @@ public class Humain {
 
     // Méthode pour acheter un bien
     public void acheter(String bien, int prix) {
-        if (argent >= prix) {
-            parler("J'ai "+argent+" sous en poche. Je vais pouvoir  m'offrir "+ bien +" à " + prix + " sous");
-            argent -= prix;
+        if (getArgent() >= prix) {
+            parler("J'ai "+getArgent()+" sous en poche. Je vais pouvoir  m'offrir "+ bien +" à " + prix + " sous");
+            argent = getArgent() - prix;
         } else {
-            parler("Je n'ai plus que " + argent +" sous en poche. Je ne peux même pas m'offrir " + bien + " à "+ prix + " sous.");
+            parler("Je n'ai plus que " + getArgent() +" sous en poche. Je ne peux même pas m'offrir " + bien + " à "+ prix + " sous.");
         }
     }
 
     // Méthode pour gagner de l'argent
     public void gagnerArgent(int gain) {
-        argent += gain;
-        parler("J'ai gagné " + gain + " euros. Ma nouvelle quantité d'argent est de " + argent + " euros.");
+        argent = getArgent() + gain;
+        //parler("J'ai gagné " + gain + " euros. Ma nouvelle quantité d'argent est de " + getArgent() + " euros.");
     }
 
     // Méthode pour perdre de l'argent
     public void perdreArgent(int perte) {
-        argent -= perte;
-        parler("J'ai perdu " + perte + " euros. Ma nouvelle quantité d'argent est de " + argent + " euros.");
+        argent = getArgent() - perte;
+        //parler("J'ai perdu " + perte + " euros. Ma nouvelle quantité d'argent est de " + getArgent() + " euros.");
     }
 }
