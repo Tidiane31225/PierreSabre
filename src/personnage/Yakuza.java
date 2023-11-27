@@ -27,4 +27,17 @@ public class Yakuza extends Humain {
 		parler("ahahaaah je viens de voler "+argent_victime+" sous à " + victime.getNom());
 		reputation+=1;
 		}
+	
+	public void perdre() {
+		int argent=getArgent();
+		reputation+=-1;
+		perdreArgent(argent);
+		parler("Oh shit, j'ai perdu mon combat et mes "+ argent +" sous j'ai déshonorer le clan "+ getClan() +" !");
+	}
+	
+	public void gagner() {
+		parler("Je l'ai eeu ! Eheh je lui ait pris ces sous");
+		reputation+=1;
+		gagnerArgent();
+	}
 }
